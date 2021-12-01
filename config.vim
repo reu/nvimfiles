@@ -98,7 +98,8 @@ set backspace=indent,eol,start
 set linespace=4
 
 " Custom tabs spacing
+autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
-autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType rust setlocal expandtab tabstop=4 shiftwidth=4
