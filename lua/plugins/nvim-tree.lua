@@ -1,4 +1,3 @@
-vim.g.nvim_tree_ignore = {'.git'}
 vim.g.nvim_tree_auto_ignore_ft = {'startify'}
 vim.g.nvim_tree_quit_on_open = 0
 vim.g.nvim_tree_indent_markers = 1
@@ -16,6 +15,8 @@ vim.g.nvim_tree_show_icons = {
 
 require'nvim-tree'.setup {
   auto_close = false,
+  diagnostics = {
+    enable = true,
+  },
   hijack_cursor = true,
-  lsp_diagnostics = true, 
 }

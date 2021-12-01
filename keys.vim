@@ -5,8 +5,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " NvimTree
-nnoremap <leader>p :NvimTreeToggle<CR>
-nnoremap <S-r> :NvimTreeRefresh<CR>
+nnoremap <leader>p :NvimTreeToggle<cr>
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
