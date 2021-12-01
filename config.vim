@@ -11,7 +11,7 @@ augroup END
 if has('gui_running')
   set ts=2 sw=2 et
   set guioptions=egmrt
-  set guifont=Menlo:h12
+  set guifont=Fira\ Code:h12
 endif
 
 " Always show the signcolumn, so our buffers doesn't shift on errors
