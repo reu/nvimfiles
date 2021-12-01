@@ -16,7 +16,7 @@ endif
 
 " Always show the signcolumn, so our buffers doesn't shift on errors
 autocmd BufRead,BufNewFile * setlocal signcolumn=yes
-autocmd FileType nerdtree setlocal signcolumn=no
+autocmd FileType NvimTree setlocal signcolumn=no
 
 set termguicolors
 set ruler " Ruler on
