@@ -29,7 +29,23 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('x', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-require'lspconfig'.rust_analyzer.setup{
+local null_ls = require('null-ls')
+null_ls.config {
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.prettier,
+  },
+}
+
+require('lspconfig')['null-ls'].setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+
+require'lspconfig'.rust_analyzer.setup {
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,

@@ -13,6 +13,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' } }
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
