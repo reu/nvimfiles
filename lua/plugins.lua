@@ -15,11 +15,19 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip'
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
+      'ray-x/cmp-treesitter',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      { 'Saecki/crates.nvim', requires = { 'nvim-lua/plenary.nvim' } },
+    }
+  }
   use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' } }
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
