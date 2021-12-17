@@ -14,6 +14,14 @@ return require("packer").startup(function()
 
   use("kyazdani42/nvim-tree.lua")
 
+  use({
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  })
+
   use("neovim/nvim-lspconfig")
   use({
     "hrsh7th/nvim-cmp",
@@ -28,7 +36,10 @@ return require("packer").startup(function()
       { "Saecki/crates.nvim", requires = { "nvim-lua/plenary.nvim" } },
     },
   })
-  use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } })
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "ThePrimeagen/refactoring.nvim" },
+  })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
