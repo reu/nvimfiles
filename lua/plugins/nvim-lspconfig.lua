@@ -37,13 +37,24 @@ null_ls.config {
   },
 }
 
-local servers = { 'null-ls', 'rust_analyzer', 'tsserver' }
+local cmp = require('cmp_nvim_lsp')
+
+local servers = { 'null-ls', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     },
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
 end
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
+}
