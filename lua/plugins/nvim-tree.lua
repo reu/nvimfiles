@@ -1,4 +1,4 @@
-vim.g.nvim_tree_auto_ignore_ft = {'startify'}
+vim.g.nvim_tree_auto_ignore_ft = { "startify" }
 vim.g.nvim_tree_quit_on_open = 0
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
@@ -13,10 +13,10 @@ vim.g.nvim_tree_show_icons = {
   files = 0,
 }
 
-require'nvim-tree'.setup {
+require("nvim-tree").setup({
   auto_close = false,
   diagnostics = {
     enable = true,
   },
   hijack_cursor = true,
-}
+})
