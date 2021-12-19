@@ -46,7 +46,7 @@ null_ls.config({
 
 local cmp = require("cmp_nvim_lsp")
 
-local servers = { "null-ls", "rust_analyzer" }
+local servers = { "null-ls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
     on_attach = on_attach,
@@ -56,6 +56,26 @@ for _, lsp in ipairs(servers) do
     capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   })
 end
+
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  settings = {
+    ["rust-analyzer"] = {
+      completion = {
+        postfix = {
+          enable = false,
+        },
+      },
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
+})
 
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
