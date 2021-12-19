@@ -48,7 +48,12 @@ return require("packer").startup(function()
   })
   use({
     "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", "ThePrimeagen/refactoring.nvim" },
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+      "ThePrimeagen/refactoring.nvim",
+      "lewis6991/gitsigns.nvim",
+    },
   })
 
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
