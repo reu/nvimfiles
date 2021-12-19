@@ -34,7 +34,9 @@ local on_attach = function(client, bufnr)
 end
 
 local null_ls = require("null-ls")
-null_ls.config({
+null_ls.setup({
+  on_attach = on_attach,
+  debounce = 150,
   sources = {
     null_ls.builtins.code_actions.gitsigns,
     null_ls.builtins.code_actions.eslint,
@@ -46,17 +48,6 @@ null_ls.config({
 })
 
 local cmp = require("cmp_nvim_lsp")
-
-local servers = { "null-ls" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup({
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  })
-end
 
 nvim_lsp.rust_analyzer.setup({
   on_attach = on_attach,
