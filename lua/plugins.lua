@@ -15,6 +15,16 @@ return require("packer").startup(function()
   use("kyazdani42/nvim-tree.lua")
 
   use({
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    config = function()
+      require("lualine").setup({
+        extensions = { "nvim-tree" },
+      })
+    end,
+  })
+
+  use({
     "ThePrimeagen/refactoring.nvim",
     requires = {
       { "nvim-lua/plenary.nvim" },
@@ -45,7 +55,7 @@ return require("packer").startup(function()
 
   use({
     "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
+    requires = { "nvim-lua/plenary.nvim" },
   })
 
   use("tpope/vim-fugitive")
