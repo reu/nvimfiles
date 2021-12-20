@@ -35,6 +35,7 @@ return require("packer").startup(function()
   })
 
   use("neovim/nvim-lspconfig")
+  use("nvim-lua/lsp_extensions.nvim")
   use({
     "hrsh7th/nvim-cmp",
     requires = {

@@ -50,7 +50,25 @@ null_ls.setup({
 local cmp = require("cmp_nvim_lsp")
 
 nvim_lsp.rust_analyzer.setup({
-  on_attach = on_attach,
+  on_attach = function(...)
+    on_attach(...)
+
+    local lsp_extensions = require("lsp_extensions")
+    function update_inlay_hints()
+      lsp_extensions.inlay_hints({
+        prefix = "",
+        highlight = "Comment",
+        enabled = { "TypeHint", "ChainingHint" },
+        only_current_line = true,
+      })
+    end
+    vim.cmd([[
+      augroup rust_inlay_hints
+        autocmd!
+        autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua update_inlay_hints()
+      augroup end
+    ]])
+  end,
   flags = {
     debounce_text_changes = 150,
   },
