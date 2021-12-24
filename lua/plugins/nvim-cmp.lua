@@ -57,4 +57,7 @@ cmp.setup({
     { name = "buffer" },
     { name = "crates" },
   },
+  experimental = {
+    ghost_text = true,
+  },
 })
