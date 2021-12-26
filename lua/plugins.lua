@@ -11,6 +11,12 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
 
   use("drewtempelmeyer/palenight.vim")
+  use({
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require("kanagawa").setup()
+    end,
+  })
 
   use("kyazdani42/nvim-tree.lua")
 
