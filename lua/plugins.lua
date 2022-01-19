@@ -65,6 +65,7 @@ return require("packer").startup(function()
     },
   })
 
+  use("sheerun/vim-polyglot")
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({
     "romgrk/nvim-treesitter-context",
