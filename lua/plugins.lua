@@ -65,16 +65,18 @@ return require("packer").startup(function()
     },
   })
 
-  use("sheerun/vim-polyglot")
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use({
-    "romgrk/nvim-treesitter-context",
-    requires = { "nvim-treesitter/nvim-treesitter" },
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("treesitter-context").setup()
+      require("trouble").setup()
     end,
   })
 
+  use("sheerun/vim-polyglot")
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use({ "SmiteshP/nvim-gps", requires = { "nvim-treesitter/nvim-treesitter" } })
+  use({ "windwp/nvim-ts-autotag", requires = { "nvim-treesitter/nvim-treesitter" } })
 
   use({
     "nvim-telescope/telescope.nvim",

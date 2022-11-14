@@ -13,7 +13,6 @@ require("nvim-treesitter.configs").setup({
     "javascript",
     "json",
     "kotlin",
-    "latex",
     "lua",
     "nix",
     "python",
@@ -24,6 +23,7 @@ require("nvim-treesitter.configs").setup({
     "toml",
     "tsx",
     "typescript",
+    "wgsl",
     "yaml",
   },
   highlight = {
