@@ -55,6 +55,8 @@ set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
 set list " Show invisible characters
 set shortmess+=c  " Don't give |ins-completion-menu| messages
+set splitbelow
+set splitright
 
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
@@ -103,3 +105,6 @@ autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType python setlocal tabstop=8 shiftwidth=4 softtabstop=4 foldmethod=syntax
 autocmd FileType rust setlocal expandtab tabstop=4 shiftwidth=4
+
+command Bash 20split term://bash
+command VBash vsplit term://bash
