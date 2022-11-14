@@ -74,14 +74,7 @@ return require("packer").startup(function()
       require("treesitter-context").setup()
     end,
   })
-  use({ "windwp/nvim-ts-autotag", requires = { "nvim-treesitter/nvim-treesitter" } })
 
-  use({
-    "steelsojka/pears.nvim",
-    config = function()
-      require("pears").setup()
-    end,
-  })
 
   use({
     "nvim-telescope/telescope.nvim",
