@@ -14,6 +14,11 @@ if has('gui_running')
   set guifont=Fira\ Code:h12
 endif
 
+if exists("g:neovide")
+  set guifont=Fira\ Code:h11
+  let g:neovide_cursor_animation_length=0
+endif
+
 " Always show the signcolumn, so our buffers doesn't shift on errors
 autocmd BufRead,BufNewFile * setlocal signcolumn=yes
 autocmd FileType NvimTree setlocal signcolumn=no
