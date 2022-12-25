@@ -47,7 +47,7 @@ null_ls.setup({
   },
 })
 
-local cmp = require("cmp_nvim_lsp")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 nvim_lsp.rust_analyzer.setup({
   on_attach = function(...)
@@ -72,7 +72,7 @@ nvim_lsp.rust_analyzer.setup({
   flags = {
     debounce_text_changes = 150,
   },
-  capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       completion = {
@@ -92,6 +92,15 @@ nvim_lsp.tsserver.setup({
   flags = {
     debounce_text_changes = 150,
   },
-  capabilities = cmp.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+})
+
+nvim_lsp.hls.setup({
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
+  filetypes = { "haskell" },
 })
