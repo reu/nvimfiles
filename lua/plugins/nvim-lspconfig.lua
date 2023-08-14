@@ -95,6 +95,7 @@ nvim_lsp.tsserver.setup({
   },
   capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
 
 nvim_lsp.hls.setup({
@@ -104,4 +105,14 @@ nvim_lsp.hls.setup({
   },
   capabilities = capabilities,
   filetypes = { "haskell" },
+})
+
+nvim_lsp.denols.setup({
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
+  filetypes = { "typescript" },
+  root_dir = nvim_lsp.util.root_pattern("deno.jsonc"),
 })
