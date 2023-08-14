@@ -81,6 +81,7 @@ nvim_lsp.rust_analyzer.setup({
         },
       },
       cargo = {
+        features = "all",
         allFeatures = true,
       },
     },
