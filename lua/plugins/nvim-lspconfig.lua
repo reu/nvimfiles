@@ -116,3 +116,12 @@ nvim_lsp.denols.setup({
   filetypes = { "typescript" },
   root_dir = nvim_lsp.util.root_pattern("deno.jsonc"),
 })
+
+nvim_lsp.terraformls.setup({
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
+  filetypes = { "terraform" },
+})
