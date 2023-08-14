@@ -2,7 +2,7 @@ lua require('plugins')
 
 source ~/.config/nvim/config.vim
 
-colorscheme kanagawa
+colorscheme catppuccin
 
 lua require('plugins.nvim-tree')
 lua require('plugins.nvim-treesitter')

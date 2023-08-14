@@ -21,6 +21,15 @@ vim.cmd([[
 return require("packer").startup(function()
   use("wbthomason/packer.nvim")
 
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+      })
+    end
+  })
   use("drewtempelmeyer/palenight.vim")
   use({
     "rebelot/kanagawa.nvim",
