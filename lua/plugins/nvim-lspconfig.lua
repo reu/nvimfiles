@@ -43,7 +43,11 @@ null_ls.setup({
     null_ls.builtins.code_actions.eslint,
     null_ls.builtins.code_actions.refactoring,
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettier.with({
+      condition = function(utils)
+        return utils.root_has_file({ ".prettierrc.json", ".prettierrc.js", ".prettierrc" })
+      end,
+    }),
     null_ls.builtins.formatting.stylua,
   },
 })
@@ -72,7 +76,12 @@ nvim_lsp.rust_analyzer.setup({
 })
 
 nvim_lsp.tsserver.setup({
-  on_attach = on_attach,
+  on_attach = function(client, buffer)
+    -- TODO: only disable default tsserver formatting when there is a prettier file
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    on_attach(client, buffer)
+  end,
   flags = {
     debounce_text_changes = 150,
   },
