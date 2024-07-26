@@ -28,7 +28,7 @@ return require("packer").startup(function()
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
       })
-    end
+    end,
   })
   use("drewtempelmeyer/palenight.vim")
   use({
@@ -37,6 +37,7 @@ return require("packer").startup(function()
       require("kanagawa").setup()
     end,
   })
+  use("gcmt/wildfire.vim")
 
   use("kyazdani42/nvim-tree.lua")
 
