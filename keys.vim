@@ -21,9 +21,23 @@ nnoremap <leader>y "+y
 if has("unix") && system("uname") != "Darwin\n"
   vnoremap <M-c> "+y
   nnoremap <M-v> "+p
+  nnoremap <leader>v "+p
   inoremap <M-v> <ESC>"+pa
   snoremap <M-v> dh"+p
 endif
+
+let g:clipboard = {
+      \   'name': 'myClipboard',
+      \   'copy': {
+      \      '+': ['xcopy'],
+      \      '*': ['xcopy'],
+      \    },
+      \   'paste': {
+      \      '+': ['xpaste'],
+      \      '*': ['xpaste'],
+      \   },
+      \   'cache_enabled': 0,
+      \ }
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <A-h> <C-\><C-N><C-w>h
