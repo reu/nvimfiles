@@ -117,3 +117,13 @@ nvim_lsp.terraformls.setup({
   capabilities = capabilities,
   filetypes = { "terraform" },
 })
+
+nvim_lsp.sorbet.setup({
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
+  cmd = { 'bundle', 'exec', 'srb', 'typecheck', '--lsp', '--disable-watchman' },
+  filetypes = { "ruby" },
+})

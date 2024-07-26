@@ -101,6 +101,9 @@ return require("packer").startup(function()
   use({
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").setup({ defaults = { file_ignore_patterns = { "sorbet/" } } })
+    end,
   })
 
   use("tpope/vim-fugitive")

@@ -71,6 +71,7 @@ set wildignore+=*/.idea/*
 set wildignore+=*/node_modules/*
 set wildignore+=*/target/*
 set wildignore+=*/.stack-work/*
+set wildignore+=*/sorbet/rbi/*
 
 " Show trailing spaces as dots and carrots for extended lines.
 " From Janus, http://git.io/PLbAlw
