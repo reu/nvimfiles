@@ -46,7 +46,13 @@ return require("packer").startup(function()
     config = function()
       require("lualine").setup({
         options = {
+          disabled_filetypes = { "NvimTree" },
           icons_enabled = false,
+        },
+        sections = {
+          lualine_c = {
+            { "filename", path = 1 },
+          },
         },
         extensions = { "nvim-tree" },
       })
